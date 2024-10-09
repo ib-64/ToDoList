@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle("hidden");
+        }
+
+    </script>
+
+<script>
+  function toggleStatus(checkbox, labelId) {
+      const label = document.getElementById(labelId);
+
+      if (checkbox.checked) {
+          label.textContent = "Completed";
+          label.classList.remove("bg-red-500");
+          label.classList.add("bg-green-500");
+      } else {
+          label.textContent = "Progressing";
+          label.classList.remove("bg-green-500");
+          label.classList.add("bg-red-500");
+      }
+  }
+  </script>
+           
+      
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Tasks</h1>
+            <div><button class="">Edit</button></div>
+        </div>
+
+        <!-- High Priority Section (Dropdown) -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleSection('highPriority')">
+                <h2 class="text-xl font-semibold">High Priority</h2>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div id="highPriority" class="mt-3">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead>
+                        <tr class="bg-gray-100 text-left text-sm font-semibold text-gray-700">
+                            <th class="py-2 px-4">Task</th>
+                            <th class="py-2 px-4">Date</th>
+                            <th class="py-2 px-4 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-600">
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 px-4">Finance team meet to discuss Q3 results</td>
+                            <td class="py-3 px-4">Today</td>
+                            <td class="py-3 px-4 text-center">
+                              <div><input type="checkbox" id="checkbox1" class="hidden" onchange="toggleStatus(this, 'label1')" />
+                              <label id="label1" for="checkbox1" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 px-4">Discuss and finalize stage 2 proposal with Victor</td>
+                            <td class="py-3 px-4">Tomorrow</td>
+                            <td class="py-3 px-4 text-center"><div><input type="checkbox" id="checkbox2" class="hidden" onchange="toggleStatus(this, 'label2')" />
+                              <label id="label2" for="checkbox2" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                            </div>
+                          </td>                        
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 px-4">Priority amenities to be procured by 24th Feb</td>
+                            <td class="py-3 px-4 flex items-center">Emily</td>
+                            <td class="py-3 px-4">24 Feb</td>
+                            <td class="py-3 px-4 text-center"><input type="checkbox" id="checkbox3" class="hidden" onchange="toggleStatus(this, 'label3')" />
+                              <label id="label3" for="checkbox3" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                            </td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 px-4">Proposal for phase 2 IT requirements</td>
+                            <td class="py-3 px-4">25 Feb</td>
+                            <td class="py-3 px-4 text-center"><input type="checkbox" id="checkbox4" class="hidden" onchange="toggleStatus(this, 'label4')" />
+                              <label id="label4" for="checkbox4" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Medium Priority Section (Dropdown) -->
+        <div>
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleSection('mediumPriority')">
+                <h2 class="text-xl font-semibold">Medium Priority</h2>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div id="mediumPriority" class="mt-3">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                  <thead>
+                    <tr class="bg-gray-100 text-left text-sm font-semibold text-gray-700">
+                        <th class="py-2 px-4">Task</th>
+                        <th class="py-2 px-4">Date</th>
+                        <th class="py-2 px-4 text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm text-gray-600">
+                    <tr class="border-t border-gray-200">
+                        <td class="py-3 px-4">Finance team meet to discuss Q3 results</td>
+                        <td class="py-3 px-4">Today</td>
+                        <td class="py-3 px-4 text-center">
+                          <div><input type="checkbox" id="checkbox5" class="hidden" onchange="toggleStatus(this, 'label5')" />
+                          <label id="label5" for="checkbox5" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                          </div>
+                        </td>
+                    </tr>
+                    <tr class="border-t border-gray-200">
+                        <td class="py-3 px-4">Discuss and finalize stage 2 proposal with Victor</td>
+                        <td class="py-3 px-4">Tomorrow</td>
+                        <td class="py-3 px-4 text-center"><div><input type="checkbox" id="checkbox6" class="hidden" onchange="toggleStatus(this, 'label6')" />
+                          <label id="label6" for="checkbox6" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                        </div>
+                      </td>                        
+                    </tr>
+                    <tr class="border-t border-gray-200">
+                        <td class="py-3 px-4">Priority amenities to be procured by 24th Feb</td>
+                        <td class="py-3 px-4">24 Feb</td>
+                        <td class="py-3 px-4 text-center"><input type="checkbox" id="checkbox7" class="hidden" onchange="toggleStatus(this, 'label7')" />
+                          <label id="label7" for="checkbox7" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                        </td>
+                    </tr>
+                    <tr class="border-t border-gray-200">
+                        <td class="py-3 px-4">Proposal for phase 2 IT requirements</td>
+                        <td class="py-3 px-4">25 Feb</td>
+                        <td class="py-3 px-4 text-center"><input type="checkbox" id="checkbox8" class="hidden" onchange="toggleStatus(this, 'label8')" />
+                          <label id="label8" for="checkbox8" class="px-3 py-1 rounded-full text-white bg-red-500 cursor-pointer text-sm">Progressing</label>
+                        </td>
+                    </tr>
+                </tbody>               
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
